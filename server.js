@@ -10,7 +10,9 @@ const weatherApi=process.env.API_URL
 app.use(cors());
 app.use(express.json());
 
-
+app.get('/',(req,res)=>{
+  res.send('weather api')
+})
 app.post('/weather', async (req, res) => {
   const {lat , lon} = req.body
   const weatherUrl = `${weatherApi}?key=${API_key}&q=${lat},${lon}`;
